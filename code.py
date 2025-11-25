@@ -47,3 +47,8 @@ def check_password_strength(password):
 # Example usage
 password = input("Enter a password to check: ")
 strength, suggestions = check_password_strength(password) 
+print(f"Password Strength: {strength}")
+if suggestions:
+    print("Suggestions to improve:")
+    for tip in suggestions:
+        print(f"- {tip}") 
