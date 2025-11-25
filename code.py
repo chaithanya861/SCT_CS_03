@@ -1,4 +1,11 @@
-  if len(password) >= 8:
+import re
+
+def check_password_strength(password):
+    score = 0
+    feedback = []
+
+    # Length check
+    if len(password) >= 8:
         score += 1
     else:
         feedback.append("Password should be at least 8 characters long.")
@@ -13,14 +20,7 @@
     if re.search(r"[a-z]", password):
         score += 1
     else:
-        feedback.append("Add at least onimport re
-
-def check_password_strength(password):
-    score = 0
-    feedback = []
-
-    # Length check
-e lowercase letter.")
+        feedback.append("Add at least one lowercase letter.")
 
     # Digit check
     if re.search(r"\d", password):
@@ -46,9 +46,4 @@ e lowercase letter.")
 
 # Example usage
 password = input("Enter a password to check: ")
-strength, suggestions = check_password_strength(password)
-print(f"Password Strength: {strength}")
-if suggestions:
-    print("Suggestions to improve:")
-    for tip in suggestions:
-        print(f"- {tip}")
+strength, suggestions = check_password_strength(password) 
